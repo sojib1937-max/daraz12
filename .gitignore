@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Environment (never commit real secrets)
+.env
+.env.local
+.env.*.local
+
+# Uploads / media (runtime data)
+backend/uploads/
+frontend/public/uploads/
+
+# Android build artifacts
+mobile/android/.gradle/
+mobile/android/app/build/
+mobile/android/build/
+mobile/android/local.properties
+mobile/android/app/release/
+*.keystore
+*.jks
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,24 @@
+{
+  "name": "desertcart-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DesertCart Android app — Capacitor wrapper around the production PWA (same backend, same database)",
+  "scripts": {
+    "android:add": "cap add android",
+    "android:sync": "npm run build -w frontend && cap sync android",
+    "android:apk:debug": "cd android && ./gradlew assembleDebug",
+    "android:apk:release": "cd android && ./gradlew assembleRelease",
+    "android:aab": "cd android && ./gradlew bundleRelease",
+    "android:open": "cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/app": "^6.0.1",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/network": "^6.0.2",
+    "@capacitor/status-bar": "^6.0.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  }
+}

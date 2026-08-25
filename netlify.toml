@@ -1,0 +1,57 @@
+# ============================================================
+# Virexamart — Netlify configuration
+# ------------------------------------------------------------
+# Netlify hosts the FRONTEND (static). API calls (/api/*) are
+# proxied to your backend (deploy the backend on Render free
+# tier first — see docs/FREE_HOSTING_BN.md).
+#
+# After creating your backend, set this env var in Netlify
+# (Site settings → Environment variables):
+#   API_URL = https://your-backend.onrender.com
+# ============================================================
+
+[build]
+  command = "npm ci && npm run build -w frontend"
+  publish = "frontend/dist"
+
+# ---- Proxy API + uploads + SEO to the backend ----
+[[redirects]]
+  from = "/api/*"
+  to = "${API_URL}/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/uploads/*"
+  to = "${API_URL}/uploads/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "${API_URL}/sitemap.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "${API_URL}/robots.txt"
+  status = 200
+  force = true
+
+# ---- SPA fallback (all other routes → index.html) ----
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# ---- PWA / caching headers ----
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"

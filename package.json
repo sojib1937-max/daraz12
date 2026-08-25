@@ -1,0 +1,35 @@
+{
+  "name": "desertcart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DesertCart — Dubai/UAE Cash-on-Delivery dropshipping e-commerce platform (frontend + backend + android)",
+  "workspaces": [
+    "backend",
+    "frontend",
+    "mobile"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "dev:backend": "npm run dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "start": "npm run start -w backend",
+    "test": "npm run test -w backend",
+    "db:generate": "npm run db:generate -w backend",
+    "db:migrate": "npm run db:migrate -w backend",
+    "db:migrate:prod": "npm run db:migrate:prod -w backend",
+    "db:seed": "npm run db:seed -w backend",
+    "db:studio": "npm run db:studio -w backend",
+    "android:add": "npm run android:add -w mobile",
+    "android:sync": "npm run android:sync -w mobile",
+    "android:apk:debug": "npm run android:apk:debug -w mobile",
+    "android:apk:release": "npm run android:apk:release -w mobile",
+    "android:aab": "npm run android:aab -w mobile"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

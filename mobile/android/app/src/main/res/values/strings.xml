@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Virexamart</string>
+    <string name="title_activity_main">Virexamart</string>
+    <string name="package_name">com.desertcart.app</string>
+    <string name="custom_url_scheme">com.desertcart.app</string>
+</resources>

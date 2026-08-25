@@ -1,0 +1,1 @@
+export { StaticPolicyPage } from './StaticPages';
